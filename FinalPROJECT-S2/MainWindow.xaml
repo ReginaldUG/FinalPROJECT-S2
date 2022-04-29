@@ -1,0 +1,63 @@
+﻿<Window x:Class="FinalPROJECT_S2.MainWindow"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalPROJECT_S2"
+        mc:Ignorable="d"
+        Title="MainWindow"  Height="700" MaxHeight="800" MaxWidth="700" MinWidth="600" BorderThickness="1" BorderBrush="Black" Loaded="Window_Loaded" Width="713.5">
+    
+    
+    
+    <Grid Margin="10,10,10,10" Background="Beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="33*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="312*"/>
+            <RowDefinition Height="142*"/>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="97*"/>
+        </Grid.RowDefinitions>
+        <!--Listbox to display the table-->
+        <DataGrid Name="DataGridLeagueTable" MinHeight="300" MaxHeight="600" Grid.ColumnSpan="3" Margin="20,15,20,15" Grid.RowSpan="2"/>
+
+        <!--Stackpanel for league choice listbox -->
+        <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="40,0,0,0">
+            <Label Content="Choose League" Width="100" HorizontalAlignment="Left"/>
+            <!--Listbox to display league choices-->
+            <ListBox Name="LstBoxLeagueChoice" Height="150" HorizontalAlignment="Left" 
+                     Width="300">
+                <!--CHANGING THE FONT STYLE OF THE SELECTED ITEM IN THE LISTBOX-->
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True" >
+                                <Setter Property="FontWeight" Value="Bold" />
+                                <Setter Property="FontSize" Value="13px"/>
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </StackPanel>
+
+        <Label Content="Season: " Grid.Column="2" Grid.Row="2" Width="50" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,62,0,5"/>
+        <!--Combobox to display seasons options-->
+        <ComboBox x:Name="ComboBoxDisplaySeason" Width="120" Grid.Column="2" Grid.Row="2" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,62,68,10"/>
+        <!--Button to display the league table-->
+        <Button Name="BtnDisplayTable" Content="Done" Grid.Row="3"  Width="100" Height="30" Margin="59,10,84,57" Click="BtnDisplayTable_Click" Grid.Column="2"/>
+     </Grid>
+</Window>
